@@ -1,0 +1,20 @@
+<div>
+<div ng-if="isLogged()"><a href="" ng-click="logout()">Logout</a></div>
+<div ng-if="!isLogged()"><a href="/petstore/#/login">Go to Login</a></div>
+<div ng-if="isLogged()"><a href="/petstore/#/home">Go to home</a></div>
+
+
+<div><a href="" ng-click="getOrder()">Current Orders</a></div>
+<div><a href="" ng-click="getOrderHistory()">Order History</a></div>
+<div>
+<div ng-if="noOrders"> No records available</div>
+</div>
+<div>
+<table ng-if="orders.length>0 && !noOrders">
+<th>Order Number</th><th>Total Amount</th><th>Status</th></tr>
+<tr ng-repeat="x in orders">
+<td>{{x.orderNumber}}</td><td>{{x.totalAmount}}</td><td>{{x.status}}</td>
+</tr>
+</table>
+</div>
+</div>				
