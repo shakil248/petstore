@@ -5,6 +5,8 @@ app.controller('cartCtrl', function($scope,loginService,cartService,sessionServi
 	$scope.noItemInCart = false;
 	$scope.orderPlaced = false;
 	
+	getStates();
+	
 	if(null!=$scope.lId && $scope.lId!=''){
 		cartService.getCart($scope.lId).then(function(cart) {
 			if(cart == ""){
@@ -36,10 +38,8 @@ app.controller('cartCtrl', function($scope,loginService,cartService,sessionServi
 		return loginService.isLogged();
 	};
 	
-	 $scope.getStates=function(){
+	function getStates(){
 		   userService.getStates($scope);
 	};
-	
-	$scope.getStates();
 	
 });

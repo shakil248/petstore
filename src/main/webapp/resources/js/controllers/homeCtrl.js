@@ -5,7 +5,7 @@ app.controller('homeCtrl', ['$scope','homeService','loginService','sessionServic
 	$scope.productsExists=false;
 	$scope.errorMessage = "";
 	
-    $scope.getProductCategories = function (){
+	function getProductCategories(){
     	homeService.getProductCategories($scope).then(function(pCats) {
     		$scope.productCats = pCats;
     	});
@@ -13,12 +13,12 @@ app.controller('homeCtrl', ['$scope','homeService','loginService','sessionServic
     
     
     
-    $scope.getProductCategories();
+    getProductCategories();
     $scope.onClickTab = function (pcId) {
-    	 $scope.getProductByCat(pcId);
+    	 getProductByCat(pcId);
     };
 
-    $scope.getProductByCat = function(title) {
+    function getProductByCat(title) {
     	homeService.getProductByCat(title).then(function(products) {
     		if(products != ""){
     			for(var i = 0;i<products.length;i++){
