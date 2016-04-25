@@ -1,15 +1,14 @@
 <div>
-<div ng-if="isLogged()"><a href="" ng-click="logout()">Logout</a></div>
+<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
 <div ng-if="!isLogged()"><a href="/petstore/#/login">Login</a></div>
-<div ng-if="isLogged()"><a href="/petstore/#/cart">Checkout</a></div>
-<div ng-if="isLogged()"><a href="/petstore/#/order">My Orders</a></div>
+<div ng-if="isLogged()"><span><a href="/petstore/#/cart">Checkout</a></span><span style="margin-left: 20px;"><a href="/petstore/#/order">View Orders</a></span></div>
 <div>
 	<ul>
 		<li ng-repeat="x in productCats"><a ng-click="onClickTab(x.productCatId)">{{x.productCatName}}</a>
 	</ul>
 </div>
 <div ng-if="productsExists">
-<h2>Search</h2><input type="text" ng-model="searchKey"/>
+<div>Search<input type="text" ng-model="searchKey"/></div>
 <table>
 <tr><th>Image</th><th>Name</th><th>Description</th><th>Price</th><th>Quantity</th><th>Action</th></tr>
 <tr ng-repeat="x in products | filter : searchKey">

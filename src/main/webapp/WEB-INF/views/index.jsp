@@ -28,6 +28,7 @@
     
         <spring:url value="/resources/js/directives/decreaseQuantity.js" var="decreaseQuantityDirectiveJS" />
         <spring:url value="/resources/js/directives/increaseQuantity.js" var="increaseQuantityDirectiveJS" />
+        
 
 <script src="${angularJS}"></script>
 <script src="${angularRouteJS}"></script>
