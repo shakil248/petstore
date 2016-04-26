@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sogeti.petstore.model.Product;
-import com.sogeti.petstore.model.User;
 import com.sogeti.petstore.service.ProductService;
-import com.sogeti.petstore.service.StatesService;
-import com.sogeti.petstore.service.UserService;
 
 @Controller
 public class ProductController {
@@ -44,6 +41,13 @@ public class ProductController {
 	List<Product> products = productService.getAllProducts();
 	  return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
     }
+	
+	@RequestMapping(value = "/searchproducts", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "searchKeyword") String searchKeyword) {
+	List<Product> products = productService.searchProducts(searchKeyword);
+	  return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+    }
+	
 	
 	@RequestMapping(value = "/createproduct", method = RequestMethod.POST)
     public @ResponseBody ResponseEntity<Void> createProduct(@RequestBody Product product) {

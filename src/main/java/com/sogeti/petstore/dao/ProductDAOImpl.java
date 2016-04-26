@@ -24,6 +24,18 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 			}
 			return null;
 	}
+	
+	@Override
+	public List<Product> searchProducts(String searchKeyword) {
+		
+			Criteria cr = getSession().createCriteria(Product.class);
+			cr.add(Restrictions.like("productName", "%"+searchKeyword+"%"));
+			cr.add(Restrictions.eq("isActive", true));
+			if(cr.list().size()>0){
+				return (List<Product>) cr.list();
+			}
+			return null;
+	}
 
 	@Override
 	public void createOrUpdateProduct(Product product) {

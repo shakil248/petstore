@@ -1,6 +1,16 @@
 'use strict';
 app.factory('homeService',['$http','sessionService','config', function($http,sessionService,config) {
     return {
+    	
+    	searchProducts: function(sk) { 
+    		var promise  = $http.get(config.apiUrl+'searchproducts',{params: {searchKeyword: sk}}).
+            then(function  (response) {
+                return response.data;
+            });
+			return promise ;
+            
+			},
+			
       	getProductByCat: function(pcId,scope) { 
     		
     		var promise  = $http.get(config.apiUrl+'getproductbycat',{params: {productCatId: pcId}}).

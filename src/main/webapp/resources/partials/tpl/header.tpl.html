@@ -1,11 +1,16 @@
-<style type="text/css">
-.bgimg {
-    background-image: url('../images/divbg.png');
+<style>
+.center {
+    margin: auto;
+    width: 45%;
+    border: 3px solid #73AD21;
+    padding: 6px;
+    
 }
 </style>
-<div style="bgcolor:red">
+<div>
 	<div style="float:right;margin-right: 20px;"><a href="/petstore/#/user">Signup</a></div>
 	<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
 	<div ng-if="!isLogged()" style="float:right;margin-right: 20px;"><a href="/petstore/#/login">Login</a></div>
 	<div><span><a href="/petstore/#/home">Home</a></span><span ng-if="isLogged()" style="margin-left: 20px;"><a href="/petstore/#/order">View Orders</a></span></div>
+	<div class="center"><input type="text" ng-model="searchKey"><button ng-click="searchProducts()">Search</button> </div>
 </div>

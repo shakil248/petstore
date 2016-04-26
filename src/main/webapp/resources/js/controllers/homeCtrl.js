@@ -1,5 +1,5 @@
 'use strict';
-app.controller('homeCtrl', ['$scope','homeService','loginService','sessionService', function ($scope,homeService,loginService,sessionService) {
+app.controller('homeCtrl', ['$scope','$rootScope','homeService','loginService','sessionService', function ($scope,$location,homeService,loginService,sessionService) {
 	$scope.tabs = new Array();
 	$scope.productCats;
 	$scope.productsExists=false;
@@ -47,5 +47,9 @@ app.controller('homeCtrl', ['$scope','homeService','loginService','sessionServic
 	$scope.logout=function(){
 		loginService.logout();
 	};
+	
+	$rootScope.$on('searchProducts', function(event, products) {
+		$scope.products = products;
+	});
 	
 }]);

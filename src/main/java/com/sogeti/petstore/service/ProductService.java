@@ -10,5 +10,6 @@ public interface ProductService {
 	public Product getProduct(String productId);
 	public List<Product> getProducts(String productCatId);
 	public List<Product> getAllProducts();
+	public List<Product> searchProducts(String searchKeyword);
 
 }
