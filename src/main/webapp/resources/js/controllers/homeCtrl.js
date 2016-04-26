@@ -1,5 +1,5 @@
 'use strict';
-app.controller('homeCtrl', ['$scope','$rootScope','homeService','loginService','sessionService', function ($scope,$location,homeService,loginService,sessionService) {
+app.controller('homeCtrl', ['$scope','$rootScope','homeService','loginService','sessionService', function ($scope,$rootScope,homeService,loginService,sessionService) {
 	$scope.tabs = new Array();
 	$scope.productCats;
 	$scope.productsExists=false;
