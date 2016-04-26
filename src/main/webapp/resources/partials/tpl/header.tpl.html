@@ -1,0 +1,11 @@
+<style type="text/css">
+.bgimg {
+    background-image: url('../images/divbg.png');
+}
+</style>
+<div style="bgcolor:red">
+	<div style="float:right;margin-right: 20px;"><a href="/petstore/#/user">Signup</a></div>
+	<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
+	<div ng-if="!isLogged()" style="float:right;margin-right: 20px;"><a href="/petstore/#/login">Login</a></div>
+	<div><span><a href="/petstore/#/home">Home</a></span><span ng-if="isLogged()" style="margin-left: 20px;"><a href="/petstore/#/order">View Orders</a></span></div>
+</div>

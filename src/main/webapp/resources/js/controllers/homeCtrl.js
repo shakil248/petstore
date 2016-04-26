@@ -14,6 +14,7 @@ app.controller('homeCtrl', ['$scope','homeService','loginService','sessionServic
     
     
     getProductCategories();
+    getProductByCat("1");
     $scope.onClickTab = function (pcId) {
     	 getProductByCat(pcId);
     };

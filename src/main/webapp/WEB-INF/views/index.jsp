@@ -28,6 +28,7 @@
     
         <spring:url value="/resources/js/directives/decreaseQuantity.js" var="decreaseQuantityDirectiveJS" />
         <spring:url value="/resources/js/directives/increaseQuantity.js" var="increaseQuantityDirectiveJS" />
+        <spring:url value="/resources/js/directives/headerDirective.js" var="headerDirectiveJS" />
         
 
 <script src="${angularJS}"></script>
@@ -56,6 +57,7 @@
         
        <script src="${orderCtrlJS}"></script>
      <script src="${orderServiceJS}"></script>
+     <script src="${headerDirectiveJS}"></script>
   
 
 </head>

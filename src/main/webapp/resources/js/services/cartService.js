@@ -40,7 +40,7 @@ app.factory('cartService',['$http','config', function($http,config) {
     		var orderDetail = new Object();
     		orderDetail.productId = cartDetail.productId;
     		orderDetail.quantity = cartDetail.quantity;
-    		totalAmount = totalAmount + parseFloat(cartDetail.productPrice) ;
+    		totalAmount = totalAmount + parseFloat(cartDetail.productPrice*cartDetail.quantity) ;
     		orderDetails.push(orderDetail);
     	});
     	var order = new Object();

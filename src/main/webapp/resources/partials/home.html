@@ -1,22 +1,22 @@
 <div>
-<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
-<div ng-if="!isLogged()"><a href="/petstore/#/login">Login</a></div>
-<div ng-if="isLogged()"><span><a href="/petstore/#/cart">Checkout</a></span><span style="margin-left: 20px;"><a href="/petstore/#/order">View Orders</a></span></div>
-<div>
-	<ul>
-		<li ng-repeat="x in productCats"><a ng-click="onClickTab(x.productCatId)">{{x.productCatName}}</a>
-	</ul>
-</div>
-<div ng-if="productsExists">
-<div>Search<input type="text" ng-model="searchKey"/></div>
-<table>
-<tr><th>Image</th><th>Name</th><th>Description</th><th>Price</th><th>Quantity</th><th>Action</th></tr>
-<tr ng-repeat="x in products | filter : searchKey">
-<td><img  id="img{{$index}}" src="resources/images/{{x.sku}}.jpg" height="150" width="120" style="margin-left: 122px; margin-bottom:20px"/></td>
-
-<td>{{x.productName}}</td><td>{{x.productDesc}}</td><td>{{x.productPrice}}</td><td><button decrease-quantity val="x.quantity">-</button><input type="text" ng-model="x.quantity" size="1" disabled/><button increase-quantity val="x.quantity">+</button></td><td><button ng-click="addToCart(x)">Add to Cart</button></td>
-</tr>
-</table>
-</div>
-{{errorMessage}}
+	<header-directive></header-directive>
+	<div ng-if="isLogged()"><span><a href="/petstore/#/cart">Checkout</a></span></div>
+	<div style="float:right; margin-right: 20px; margin-top: 20px;">Search<input type="text" ng-model="searchKey"/></div>
+	<div>
+		<ul>
+			<li ng-repeat="x in productCats"><a ng-click="onClickTab(x.productCatId)">{{x.productCatName}}</a>
+		</ul>
+	</div>
+	<div ng-if="productsExists">
+	
+	<table>
+<!-- 	<tr><th>Image</th><th>Name</th><th>Description</th><th>Price</th><th>Quantity</th><th>Action</th></tr> -->
+	<tr ng-repeat="x in products | filter : searchKey">
+	<td><img  id="img{{$index}}" src="resources/images/{{x.sku}}.jpg" height="150" width="120" style="margin-left: 122px; margin-bottom:20px"/></td>
+	
+	<td>{{x.productName}}</td><td>{{x.productDesc}}</td><td>Rs.{{x.productPrice}}</td><td><button decrease-quantity val="x.quantity">-</button><input type="text" ng-model="x.quantity" size="1" disabled/><button increase-quantity val="x.quantity">+</button></td><td><button ng-click="addToCart(x)">Add to Cart</button></td>
+	</tr>
+	</table>
+	</div>
+		{{errorMessage}}
 </div>
