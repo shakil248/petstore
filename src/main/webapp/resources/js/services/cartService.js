@@ -16,9 +16,7 @@ app.factory('cartService',['$http','config', function($http,config) {
     				  if(newCartDetails.length<1){
     					  scope.noItemInCart = true;
     				  }
-    				  
-    				  
-  					
+    				  scope.$emit('decCartCount', cartDetail.quantity);
     			});
     			res.error(function(data, status, headers, config) {
     				 console.log(data);
@@ -56,6 +54,7 @@ app.factory('cartService',['$http','config', function($http,config) {
     				  console.log("Success", data);
     				  scope.orderPlaced = true;
     				  scope.noItemInCart = true;
+    				  scope.$emit('setCartCount', 0);
   					
     			});
     			res.error(function(data, status, headers, config) {

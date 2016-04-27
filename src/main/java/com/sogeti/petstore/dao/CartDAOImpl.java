@@ -1,5 +1,7 @@
 package com.sogeti.petstore.dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -51,7 +53,12 @@ public class CartDAOImpl extends BaseDAO implements CartDAO {
 		Criteria cr = getSession().createCriteria(Cart.class);
 		cr.add(Restrictions.eq("userId", userId));
 		if(cr.list().size()>0){
-			return cr.list().size();
+			Cart cart = (Cart) cr.list().get(0); 
+			int count = 0;
+			for(CartDetail cartDetail : cart.getCartDetails()){
+				count = count + cartDetail.getQuantity();
+			}
+			return count;
 		}
 		return 0;
 	}

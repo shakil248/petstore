@@ -28,6 +28,10 @@ app.factory('loginService', function($location,$http,sessionService,config) {
 		isLogged: function() {
 			if(sessionService.get('userId')) {return true;} else {return false;}
 		},
+		
+		getUserId: function() {
+			if(sessionService.get('userId')) {return sessionService.get('userId');} else {return "";}
+		},
 	
 		
 		

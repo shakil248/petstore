@@ -1,18 +1,22 @@
 'use strict';
 app.factory('homeService',['$http','sessionService','config', function($http,sessionService,config) {
     return {
-    	
+    	getCartCount: function(uId) { 
+    		var promise  = $http.get(config.apiUrl+'getcartcount',{params: {userId: uId}}).
+            then(function  (response) {
+                return response.data;
+            });
+			return promise ;
+			},
     	searchProducts: function(sk) { 
     		var promise  = $http.get(config.apiUrl+'searchproducts',{params: {searchKeyword: sk}}).
             then(function  (response) {
                 return response.data;
             });
 			return promise ;
-            
 			},
 			
       	getProductByCat: function(pcId,scope) { 
-    		
     		var promise  = $http.get(config.apiUrl+'getproductbycat',{params: {productCatId: pcId}}).
             then(function  (response) {
                 return response.data;
@@ -47,14 +51,13 @@ app.factory('homeService',['$http','sessionService','config', function($http,ses
 			res.success(function(data, status, headers, config) {
 				  console.log("Success", data);
 				  scope.errorMessage = "Item added to cart successfully";
-					
+				  scope.$emit('incCartCount', product.quantity);
 			});
 			res.error(function(data, status, headers, config) {
 				 console.log(data);
 				 scope.errorMessage = "Item did not get added";
 			});	
-			},
-    	
+		},
     };
 }]);
 

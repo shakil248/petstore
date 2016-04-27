@@ -12,5 +12,6 @@
 	<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
 	<div ng-if="!isLogged()" style="float:right;margin-right: 20px;"><a href="/petstore/#/login">Login</a></div>
 	<div><span><a href="/petstore/#/home">Home</a></span><span ng-if="isLogged()" style="margin-left: 20px;"><a href="/petstore/#/order">View Orders</a></span></div>
+	<div style="float: right; margin-right: 35px;"><a href="/petstore/#/cart"><img style="width:25px"src="resources/images/cart.png"><span>({{cartCount}})</span></a></div>
 	<div class="center"><input type="text" ng-model="searchKey"><button ng-click="searchProducts()">Search</button> </div>
 </div>

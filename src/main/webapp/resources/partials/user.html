@@ -1,5 +1,6 @@
 <div>
-<header-directive></header-directive>
+<div ng-if="isLogged()" style="float:right;margin-right: 20px;"><a href="" ng-click="logout()">Logout</a></div>
+<div ng-if="!isLogged()" style="float:right;margin-right: 20px;"><a href="/petstore/#/login">Login</a></div>
 <user-directive></user-directive>
 {{saveStatus}}
 </div>
