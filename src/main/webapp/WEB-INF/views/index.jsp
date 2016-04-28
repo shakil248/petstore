@@ -5,7 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script> -->
+<!-- <link type="text/css" href="/resources/lib/css/bootstrap.min.css" rel="stylesheet"/> -->
 
+<spring:url value="/resources/lib/css/bootstrap.css" var="bootstrapCSS" />
 <spring:url value="/resources/lib/angular/angular.js" var="angularJS" />
 <spring:url value="/resources/lib/angular/angular-route.js" var="angularRouteJS" />
 <spring:url value="/resources/js/app.js" var="appJS" />
@@ -29,8 +31,9 @@
         <spring:url value="/resources/js/directives/decreaseQuantity.js" var="decreaseQuantityDirectiveJS" />
         <spring:url value="/resources/js/directives/increaseQuantity.js" var="increaseQuantityDirectiveJS" />
         <spring:url value="/resources/js/directives/headerDirective.js" var="headerDirectiveJS" />
+   
         
-
+ <link href="${bootstrapCSS}" rel="stylesheet" type="text/css" ></link>
 <script src="${angularJS}"></script>
 <script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
@@ -58,6 +61,7 @@
        <script src="${orderCtrlJS}"></script>
      <script src="${orderServiceJS}"></script>
      <script src="${headerDirectiveJS}"></script>
+     
   
 
 </head>
